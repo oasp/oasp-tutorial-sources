@@ -20,4 +20,6 @@ jobs:
       - run: |
           cd angular
           npm run build
-      - run: npm test
+      - run: |
+          cd angular
+          npm test
