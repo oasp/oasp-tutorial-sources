@@ -9,6 +9,6 @@ jobs:
       - name: build
         run: |
           cd angular
-          sudo npm install -g @angular/cli
+          sudo npm install
           ng build
           ng test
