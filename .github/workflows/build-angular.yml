@@ -10,5 +10,4 @@ jobs:
         run: |
           cd angular
           sudo npm install
-          npm run build
           npm run test
