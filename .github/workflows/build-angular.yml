@@ -4,12 +4,20 @@ jobs:
   build:
     if: ${{github.repository == 'devonfw/jump-the-queue'}}
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x]
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
       - name: build
         run: |
           cd angular
-          npm install -g @angular/cli
-          ng build
-          ng test
+          npm install
+      - run: |
+          cd angular
+          npm run build
